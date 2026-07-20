@@ -996,94 +996,36 @@ body{font-family:'Inter',Arial,sans-serif;background:#EAECF2;color:#1C2333;font-
 </div>
 
 
-<!-- ═══════════════════════════════════════════════════
-     RISCO DE INCÊNDIO FLORESTAL — DADOS EM TEMPO REAL
-     Fonte: CEMADEN-RJ / Defesa Civil do Estado do RJ
-     ══════════════════════════════════════════════════ -->
-<div id="risco-incendio-card" style="
-  background:#fff;
-  border-radius:14px;
-  border:.5px solid #D8DCE8;
-  border-top:3px solid #E35F1A;
-  padding:22px 24px;
-  margin-bottom:20px;
-">
-  <!-- Título -->
-  <div style="
-    font-size:13px;font-weight:700;color:#0B1F52;
-    margin-bottom:4px;display:flex;align-items:center;
-    gap:8px;padding-bottom:12px;border-bottom:.5px solid #EEF1F6;
-    text-transform:uppercase;letter-spacing:.5px;
-    justify-content:space-between;flex-wrap:wrap;gap:8px;
-  ">
-    <span>&#128293; Risco de Inc&ecirc;ndio Florestal — Dados em Tempo Real</span>
-    <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
-      <div style="display:flex;gap:4px">
-        <button id="ri-sort-grav" onclick="riSort('gravidade')" style="
-          font-size:10.5px;font-weight:600;padding:4px 10px;border-radius:7px;
-          border:1px solid #C0392B;background:#FDEDEC;color:#7B241C;
-          cursor:pointer;font-family:inherit;transition:all .15s;
-        ">&#9650; Mais Grave</button>
-        <button id="ri-sort-redec" onclick="riSort('redec')" style="
-          font-size:10.5px;font-weight:600;padding:4px 10px;border-radius:7px;
-          border:1px solid #C5D5F0;background:#F0F5FF;color:#0B1F52;
-          cursor:pointer;font-family:inherit;transition:all .15s;
-        ">REDEC 1–11</button>
-      </div>
-      <span id="ri-badge-live" style="
-        display:inline-flex;align-items:center;gap:5px;
-        background:rgba(39,174,96,.18);border:1px solid rgba(39,174,96,.5);
-        color:#1A7A58;font-size:10px;font-weight:700;
-        padding:3px 10px;border-radius:999px;letter-spacing:.3px;
-      ">
-        <span style="width:7px;height:7px;border-radius:50%;background:#27AE60;display:inline-block;animation:pulse 1.5s infinite"></span>
-        AO VIVO
-      </span>
+<div class="card" style="border-top:3px solid #E35F1A">
+  <div class="card-title">&#128293; Risco de Incêndio Florestal por REDEC — Dados em Tempo Real</div>
+  <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap">
+    <div style="flex:1;min-width:220px">
+      <p style="font-size:13px;color:#4A5568;line-height:1.7;margin-bottom:16px">
+        Os dados de <strong>Risco de Incêndio Florestal em Tempo Real por REDEC</strong> são 
+        disponibilizados pelo <strong>CEMADEN-RJ / Defesa Civil do Estado do Rio de Janeiro</strong> 
+        e atualizados continuamente no painel de monitoramento.
+      </p>
+      <a href="https://painelcemadenrj.defesacivil.rj.gov.br/monitoramento/v2/mapa/redec.php?action=2" target="_blank" rel="noopener"
+        style="display:inline-flex;align-items:center;gap:10px;font-size:13.5px;font-weight:700;
+        color:#fff;text-decoration:none;padding:12px 22px;background:linear-gradient(135deg,#E35F1A,#F0803A);
+        border-radius:10px;box-shadow:0 3px 10px rgba(227,95,26,.3);transition:opacity .15s"
+        onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+        &#127760; Acessar painel CEMADEN-RJ — Risco por REDEC
+        <span style="font-size:16px">&#8599;</span>
+      </a>
+    </div>
+    <div style="flex-shrink:0;background:#FFF7F0;border:1.5px solid #E35F1A;border-radius:12px;
+      padding:18px 22px;text-align:center;min-width:180px">
+      <div style="font-size:28px;margin-bottom:6px">&#128293;</div>
+      <div style="font-size:11px;font-weight:700;color:#C94E0A;text-transform:uppercase;
+        letter-spacing:.5px;line-height:1.5">Monitoramento<br>em tempo real<br>disponível</div>
     </div>
   </div>
-
-  <!-- Fonte -->
-  <p style="font-size:11px;color:#8A94A6;margin-bottom:16px;line-height:1.6">
-    Fonte: <strong style="color:#0B1F52">CEMADEN-RJ / Defesa Civil do Estado do Rio de Janeiro</strong>
-    &mdash; Atualizado automaticamente a cada carregamento.
-    <a href="https://painelcemadenrj.defesacivil.rj.gov.br/monitoramento/v2/mapa/redec.php?action=2"
-       target="_blank" rel="noopener"
-       style="color:#378ADD;text-decoration:none;font-weight:600">
-      Ver painel completo &rarr;
-    </a>
+  <p style="font-size:10.5px;color:#B0BAC9;margin-top:14px">
+    Fonte: CEMADEN-RJ / Defesa Civil do Estado do Rio de Janeiro — 
+    <a href="https://painelcemadenrj.defesacivil.rj.gov.br/monitoramento/v2/mapa/redec.php?action=2" target="_blank" rel="noopener" 
+      style="color:#378ADD;text-decoration:none">https://painelcemadenrj.defesacivil.rj.gov.br/monitoramento/v2/mapa/redec.php?action=2</a>
   </p>
-
-  <!-- Grid das REDECs -->
-  <div id="ri-grid" style="
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
-    gap:10px;
-    margin-bottom:16px;
-  ">
-    <!-- preenchido via JS -->
-    <div style="text-align:center;padding:24px;color:#B0BAC9;grid-column:1/-1">
-      <div style="font-size:28px;margin-bottom:8px">&#128293;</div>
-      <p style="font-size:12px">Carregando dados em tempo real&hellip;</p>
-    </div>
-  </div>
-
-  <!-- Legenda -->
-  <div id="ri-legend" style="display:none;flex-wrap:wrap;gap:10px;font-size:11px;color:#6B7A99;align-items:center;border-top:.5px solid #EEF1F6;padding-top:12px;margin-top:4px">
-    <span style="font-weight:700;color:#0B1F52;margin-right:4px">Legenda:</span>
-    <span style="display:flex;align-items:center;gap:4px"><span style="width:12px;height:12px;border-radius:3px;background:#5CB85C;display:inline-block"></span>Muito Baixo</span>
-    <span style="display:flex;align-items:center;gap:4px"><span style="width:12px;height:12px;border-radius:3px;background:#F5DD00;display:inline-block"></span>Baixo</span>
-    <span style="display:flex;align-items:center;gap:4px"><span style="width:12px;height:12px;border-radius:3px;background:#F0A500;display:inline-block"></span>Moderado</span>
-    <span style="display:flex;align-items:center;gap:4px"><span style="width:12px;height:12px;border-radius:3px;background:#E63737;display:inline-block"></span>Alto</span>
-    <span style="display:flex;align-items:center;gap:4px"><span style="width:12px;height:12px;border-radius:3px;background:#7B3FA0;display:inline-block"></span>Muito Alto</span>
-    <span style="margin-left:auto;font-size:10px;color:#B0BAC9" id="ri-timestamp"></span>
-    <button onclick="fetchCemaden()" style="font-size:10.5px;font-weight:700;padding:4px 11px;border-radius:7px;border:1px solid #C5D5F0;background:#F0F5FF;color:#0B1F52;cursor:pointer;font-family:inherit;margin-left:8px">&#8635; Atualizar</button>
-  </div>
-
-  <!-- Nota de erro (oculto por padrão) -->
-  <div id="ri-error" style="display:none;background:#FDF2F2;border:1px solid rgba(192,57,43,.3);border-left:3px solid #C0392B;border-radius:8px;padding:10px 13px;font-size:11.5px;color:#7B241C;line-height:1.6;margin-top:8px">
-    &#9888; N&atilde;o foi poss&iacute;vel carregar os dados em tempo real.
-    <a href="https://painelcemadenrj.defesacivil.rj.gov.br/monitoramento/v2/mapa/redec.php?action=2" target="_blank" rel="noopener" style="color:#7B241C;font-weight:700">Acesse o painel diretamente &rarr;</a>
-  </div>
 </div>
 
 
@@ -1825,205 +1767,7 @@ window.addEventListener('DOMContentLoaded',()=>{
 });
 
 </script>
-<script>
-// ── RISCO DE INCÊNDIO FLORESTAL — leitura automática do CEMADEN-RJ ────────
-(function(){
 
-  var CEMADEN_URL = 'https://painelcemadenrj.defesacivil.rj.gov.br/monitoramento/v2/mapa/redec.php?action=2';
-
-  var REDEC_MAP = {
-    'CAPITAL':            { redec:1,  nome:'Capital',           histId:3  },
-    'BAIXADA FLUMINENSE': { redec:2,  nome:'Baixada Fluminense',histId:1  },
-    'METROPOLITANA':      { redec:3,  nome:'Metropolitana',     histId:5  },
-    'COSTA VERDE':        { redec:4,  nome:'Costa Verde',       histId:4  },
-    'SUL I':              { redec:5,  nome:'Sul I',             histId:10 },
-    'SUL II':             { redec:6,  nome:'Sul II',            histId:11 },
-    'SERRANA I':          { redec:7,  nome:'Serrana I',         histId:8  },
-    'SERRANA II':         { redec:8,  nome:'Serrana II',        histId:9  },
-    'BAIXADA LITORÂNEA':  { redec:9,  nome:'Baixada Litorânea', histId:2  },
-    'NORTE':              { redec:10, nome:'Norte',             histId:6  },
-    'NOROESTE':           { redec:11, nome:'Noroeste',          histId:7  },
-  };
-
-  var NIVEL_CONFIG = {
-    'MUITO BAIXO': { bg:'#EEF7EE', border:'#5CB85C', text:'#2D6A2D', badge:'#5CB85C', badgeText:'#fff',    icon:'🟢' },
-    'BAIXO':       { bg:'#FFFDE6', border:'#F5DD00', text:'#6B5900', badge:'#F5DD00', badgeText:'#1C2333', icon:'🟡' },
-    'MODERADO':    { bg:'#FFF5E0', border:'#F0A500', text:'#7A4F00', badge:'#F0A500', badgeText:'#fff',    icon:'🟠' },
-    'ALTO':        { bg:'#FDEEEE', border:'#E63737', text:'#7B1C1C', badge:'#E63737', badgeText:'#fff',    icon:'🔴' },
-    'MUITO ALTO':  { bg:'#F3EEF9', border:'#7B3FA0', text:'#4A1D6E', badge:'#7B3FA0', badgeText:'#fff',    icon:'🟣' },
-  };
-
-  var NIVEL_ORDEM  = { 'MUITO ALTO':0, 'ALTO':1, 'MODERADO':2, 'BAIXO':3, 'MUITO BAIXO':4 };
-  var riOrdemAtual = 'redec';
-  var REDEC_DADOS  = [];
-  var _fetchTimer  = null;
-
-  // Fallback — all MUITO BAIXO (shown before real data arrives)
-  var FALLBACK = Object.keys(REDEC_MAP).map(function(k){
-    return { nome:REDEC_MAP[k].nome, nivel:'MUITO BAIXO',
-             redec:REDEC_MAP[k].redec, histId:REDEC_MAP[k].histId };
-  });
-
-  // ── Parse CEMADEN response ────────────────────────────────────────────
-  // Format: **NOME - NÍVEL - [Histórico da Redec](URL?redec=N)**
-  function parseCemadenHTML(text) {
-    var results = [];
-    var re = /\*\*([A-ZÁÀÂÃÉÊÍÓÔÕÚÜÇ\s]+?)\s*-\s*(MUITO BAIXO|MUITO ALTO|BAIXO|MODERADO|ALTO)\s*-\s*\[Hist[^)]+\?(?:action=2&)?redec=(\d+)\)/gi;
-    var m;
-    while ((m = re.exec(text)) !== null) {
-      var key  = m[1].trim().toUpperCase();
-      var info = REDEC_MAP[key];
-      if (info) {
-        results.push({ nome:info.nome, nivel:m[2].toUpperCase(),
-                       redec:info.redec, histId:parseInt(m[3]) });
-      }
-    }
-    return results.length === 11 ? results : null;
-  }
-
-  // ── Sort / render ─────────────────────────────────────────────────────
-  window.riSort = function(modo) {
-    riOrdemAtual = modo;
-    var bG = document.getElementById('ri-sort-grav');
-    var bR = document.getElementById('ri-sort-redec');
-    if (bG && bR) {
-      if (modo === 'gravidade') {
-        bG.style.cssText='background:#C0392B;color:#fff;border-color:#C0392B';
-        bR.style.cssText='background:#F0F5FF;color:#0B1F52;border-color:#C5D5F0';
-      } else {
-        bR.style.cssText='background:#0B1F52;color:#fff;border-color:#0B1F52';
-        bG.style.cssText='background:#FDEDEC;color:#7B241C;border-color:#C0392B';
-      }
-    }
-    render();
-  };
-
-  function render() {
-    var grid = document.getElementById('ri-grid');
-    if (!grid) return;
-    var dados = REDEC_DADOS.slice();
-    if (riOrdemAtual === 'gravidade') {
-      dados.sort(function(a,b){ return NIVEL_ORDEM[a.nivel]-NIVEL_ORDEM[b.nivel]; });
-    } else {
-      dados.sort(function(a,b){ return a.redec-b.redec; });
-    }
-    grid.innerHTML = dados.map(function(r) {
-      var cfg = NIVEL_CONFIG[r.nivel] || NIVEL_CONFIG['MUITO BAIXO'];
-      var url = 'https://painelcemadenrj.defesacivil.rj.gov.br/monitoramento/v2/redec/historico.php?action=2&redec='+r.histId;
-      return '<div style="background:'+cfg.bg+';border:1.5px solid '+cfg.border
-        +';border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:8px">'
-        +'<div style="display:flex;justify-content:space-between;align-items:center">'
-        +'<span style="font-size:12px;font-weight:700;color:'+cfg.text+'">REDEC '+r.redec+' – '+r.nome+'</span>'
-        +'<span style="font-size:18px">'+cfg.icon+'</span></div>'
-        +'<span style="display:inline-block;font-size:10.5px;font-weight:700;padding:3px 10px;border-radius:999px;'
-        +'background:'+cfg.badge+';color:'+cfg.badgeText+';align-self:flex-start">'+r.nivel+'</span>'
-        +'<a href="'+url+'" target="_blank" rel="noopener" style="font-size:10.5px;color:'+cfg.text
-        +';text-decoration:underline;opacity:.8">Ver histórico CEMADEN ↗</a></div>';
-    }).join('');
-    // 12th grid item: status/error banner spanning remaining 4 columns
-    grid.innerHTML += '<div id="ri-status-cell" style="grid-column:span 4;'
-      + 'display:flex;align-items:center;justify-content:center;padding:0 8px">'
-      + '<span id="ri-status-inner" style="font-size:11px;color:#B0BAC9;font-style:italic">Carregando dados do CEMADEN-RJ...</span>'
-      + '</div>';
-    var leg = document.getElementById('ri-legend');
-    if (leg) leg.style.display = 'flex';
-  }
-
-  // ── Fetch via allorigins (most reliable, works from file://) ──────────
-  function fetchCemaden() {
-    var ts = document.getElementById('ri-timestamp');
-    if (ts) { ts.textContent = 'Carregando dados do CEMADEN-RJ...'; ts.style.color = ''; }
-
-    // If running from file:// — fetch will always fail (CORS); show error immediately
-    if (location.protocol === 'file:') {
-      showCemadenError(ts);
-      return;
-    }
-
-    var enc = encodeURIComponent(CEMADEN_URL);
-
-    var proxies = [
-      { url: 'https://api.allorigins.win/raw?url=' + enc,
-        parse: function(r){ return r.text(); } },
-      { url: 'https://api.allorigins.win/get?url=' + enc,
-        parse: function(r){ return r.json().then(function(d){ return d.contents||''; }); } },
-      { url: 'https://corsproxy.io/?' + enc,
-        parse: function(r){ return r.text(); } },
-      { url: 'https://thingproxy.freeboard.io/fetch/' + CEMADEN_URL,
-        parse: function(r){ return r.text(); } },
-    ];
-
-    function tryProxy(i) {
-      if (i >= proxies.length) {
-        if (REDEC_DADOS.length === 0) REDEC_DADOS = FALLBACK;
-        showCemadenError(ts);
-        render();
-        return;
-      }
-      var p = proxies[i];
-      // 8s timeout per proxy
-      var controller = new AbortController();
-      var timer = setTimeout(function(){ controller.abort(); }, 8000);
-      fetch(p.url, { cache: 'no-cache', signal: controller.signal })
-        .then(function(r) {
-          clearTimeout(timer);
-          if (!r.ok) throw new Error('HTTP ' + r.status);
-          return p.parse(r);
-        })
-        .then(function(text) {
-          if (!text || text.length < 50) throw new Error('resposta vazia');
-          var parsed = parseCemadenHTML(text);
-          if (!parsed) throw new Error('formato inesperado');
-          REDEC_DADOS = parsed;
-          var now = new Date().toLocaleString('pt-BR');
-          if (ts) { ts.innerHTML = '<span style="font-size:12px;color:#2D6A2D">&#10003; Atualizado: ' + now + ' — Fonte: CEMADEN-RJ</span>'; }
-          var sc=document.getElementById('ri-status-inner');
-          if(sc){ sc.style.cssText='font-size:12px;color:#2D6A2D'; sc.textContent='✓ Atualizado: '+now+' — Fonte: CEMADEN-RJ'; }
-          render();
-          if (_fetchTimer) clearTimeout(_fetchTimer);
-          _fetchTimer = setTimeout(fetchCemaden, 15 * 60 * 1000);
-        })
-        .catch(function(e) {
-          clearTimeout(timer);
-          console.warn('[RISCO] Proxy ' + i + ' falhou:', e.message);
-          tryProxy(i + 1);
-        });
-    }
-
-    tryProxy(0);
-  }
-
-  function showCemadenError(ts) {
-    // Small message in legend bar
-    if (ts) {
-      ts.innerHTML = '<span style="font-size:11px;font-weight:700;color:#C0392B">'
-        + '&#10060; Não foi possível conectar ao CEMADEN-RJ</span>';
-      ts.style.color = '';
-    }
-    // Big banner in the empty grid space next to REDEC 11
-    var sc = document.getElementById('ri-status-inner');
-    if (sc) {
-      sc.outerHTML = '<div id="ri-status-inner" style="'
-        + 'display:inline-flex;align-items:center;justify-content:center;gap:10px;'
-        + 'width:100%;padding:14px 20px;background:#C0392B;border-radius:12px;'
-        + 'font-size:15px;font-weight:700;color:#fff;letter-spacing:.2px;'
-        + 'box-shadow:0 3px 10px rgba(192,57,43,.3)">'
-        + '&#10060;&nbsp; Não foi possível conectar ao CEMADEN-RJ'
-        + '<span style="font-size:12px;font-weight:400;opacity:.8;margin-left:4px">— dados não atualizados</span>'
-        + '</div>';
-    }
-  }
-
-  // ── Public refresh button ─────────────────────────────────────────────
-  window.fetchCemaden = fetchCemaden;
-
-  // ── Init ──────────────────────────────────────────────────────────────
-  REDEC_DADOS = FALLBACK;
-  render();
-  fetchCemaden();
-
-})();
-</script>
 <script>
 
 // ════════════════════════════════════════════════════════
