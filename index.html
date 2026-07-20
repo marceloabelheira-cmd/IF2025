@@ -1370,10 +1370,13 @@ function parseEventos26(gviz){
     // Parse classif — handles "GRAU 1 - MODERADO IMPACTO", "MODERADO", "ALTO IMPACTO" etc
     function parseClassif(raw){
       const u=(raw||'').toUpperCase();
-      if(u.includes('MUITO ALTO')) return 'MUITO ALTO';
-      if(u.includes('ALTO'))       return 'ALTO';
-      if(u.includes('MODERADO'))   return 'MODERADO';
-      return raw; // keep original if no match
+      if(u.includes('MUITO ALTO'))  return 'MUITO ALTO';
+      if(u.includes('ALTO'))        return 'ALTO';
+      if(u.includes('MODERADO'))    return 'MODERADO';
+      if(u.includes('ANALI'))       return 'EM ANALISE';
+      if(u.includes('N') && (u.includes('ATINGIU')||u.includes('ATING'))) return 'NAO ATINGIU';
+      if(u.includes('GRAU 1') && u.includes('N')) return 'NAO ATINGIU';
+      return raw;
     }
 
     rows.forEach(row=>{
@@ -1610,14 +1613,34 @@ function renderEventos26(){
       bg:'#FFF7F0', border:'#E35F1A', leftBar:'#C94E0A',
       badgeBg:'#FDEBD8', badgeColor:'#7D3100', badgeBorder:'#E88040',
       icon:'▲', label:'MODERADO IMPACTO', headerBg:'#FDDFC0'
+    },
+    'EM ANALISE': {
+      bg:'#F7F8FA', border:'#9AA4B2', leftBar:'#6B7A99',
+      badgeBg:'#EAECF0', badgeColor:'#4A5568', badgeBorder:'#9AA4B2',
+      icon:'🔍', label:'EM ANÁLISE', headerBg:'#E4E7ED'
+    },
+    'NAO ATINGIU': {
+      bg:'#F7F8FA', border:'#B0BAC9', leftBar:'#9AA4B2',
+      badgeBg:'#EAECF0', badgeColor:'#6B7A99', badgeBorder:'#B0BAC9',
+      icon:'—', label:'NÃO ATINGIU GRAU 1', headerBg:'#E4E7ED'
     }
   };
 
   function getLevel(classif){
-    const up=(classif||'').toUpperCase();
+    const c = classif || '';
+    if(c === 'MUITO ALTO')  return LEVELS['MUITO ALTO'];
+    if(c === 'ALTO')        return LEVELS['ALTO'];
+    if(c === 'MODERADO')    return LEVELS['MODERADO'];
+    if(c === 'EM ANALISE')  return LEVELS['EM ANALISE'];
+    if(c === 'NAO ATINGIU') return LEVELS['NAO ATINGIU'];
+    // Fallback: try partial match for unparsed values
+    const up = c.toUpperCase();
     if(up.includes('MUITO')) return LEVELS['MUITO ALTO'];
     if(up.includes('ALTO'))  return LEVELS['ALTO'];
-    return LEVELS['MODERADO'];
+    if(up.includes('MODERADO')) return LEVELS['MODERADO'];
+    if(up.includes('ANAL'))  return LEVELS['EM ANALISE'];
+    if(up.includes('NAO')||up.includes('NÃO')) return LEVELS['NAO ATINGIU'];
+    return LEVELS['EM ANALISE']; // default for unknown
   }
 
   el.innerHTML = EVENTOS26.map((ev,i)=>{
