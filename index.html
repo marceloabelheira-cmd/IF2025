@@ -2017,56 +2017,73 @@ function renderEventos26(eventos) {
 <!-- ══════════════════════════════════════════════════════════════════
      MODAL — NOSSOS PRODUTOS
 ════════════════════════════════════════════════════════════════════ -->
-<div id="produtosOverlay" onclick="if(event.target===this)closeProdutos()" style="display:none;position:fixed;inset:0;background:rgba(5,15,38,.75);z-index:9999;overflow-y:auto;padding:40px 16px 60px">
-  <div style="max-width:900px;margin:0 auto;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,.35)">
+<div id="produtosOverlay" onclick="if(event.target===this)closeProdutos()" style="display:none;position:fixed;inset:0;background:rgba(5,15,38,.78);z-index:9999;overflow-y:auto;padding:40px 16px 60px">
+  <div style="max-width:660px;margin:0 auto;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,.35)">
 
     <!-- Header -->
-    <div style="background:linear-gradient(135deg,#0B1F52 0%,#163580 100%);padding:28px 32px 24px;position:relative">
-      <button onclick="closeProdutos()" style="position:absolute;top:16px;right:18px;background:rgba(255,255,255,.12);border:none;color:#fff;font-size:18px;line-height:1;width:30px;height:30px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center">&#10005;</button>
-      <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;color:rgba(255,255,255,.5);text-transform:uppercase;margin-bottom:6px">SIMEO · GIGR-SEIF / SEDEC-RJ</div>
-      <div style="font-size:22px;font-weight:800;color:#fff;letter-spacing:-.3px">Sites, Painéis &amp; Dashboards</div>
-      <div style="font-size:12px;color:rgba(255,255,255,.55);margin-top:5px">Produtos disponíveis para acesso — clicar abre em nova aba</div>
+    <div style="background:linear-gradient(135deg,#0B1F52 0%,#163580 100%);padding:22px 26px 18px;position:relative">
+      <button onclick="closeProdutos()" style="position:absolute;top:14px;right:16px;background:rgba(255,255,255,.12);border:none;color:#fff;font-size:16px;line-height:1;width:28px;height:28px;border-radius:50%;cursor:pointer">&#10005;</button>
+      <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:rgba(255,255,255,.45);text-transform:uppercase;margin-bottom:4px">SIMEO · GIGR-SEIF / SEDEC-RJ</div>
+      <div style="font-size:18px;font-weight:800;color:#fff;letter-spacing:-.2px">Outros Produtos</div>
+      <div style="font-size:11px;color:rgba(255,255,255,.5);margin-top:3px">Clicar abre em nova aba</div>
     </div>
 
-    <!-- Grid -->
-    <div style="padding:24px 28px 32px;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px" id="produtosGrid"></div>
+    <!-- Destaque: Chuvas Intensas -->
+    <div style="padding:20px 22px 0">
+      <div style="font-size:9.5px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#8A9BB5;margin-bottom:10px">Em destaque</div>
+      <a href="https://marceloabelheira-cmd.github.io/ESCALAv4/" target="_blank" rel="noopener"
+         style="display:flex;align-items:center;gap:16px;background:linear-gradient(135deg,#EAF2FB,#F0F7FF);border:1.5px solid #AED6F1;border-radius:12px;padding:18px 20px;text-decoration:none;color:inherit;transition:box-shadow .15s"
+         onmouseover="this.style.boxShadow='0 6px 22px rgba(11,31,82,.15)'" onmouseout="this.style.boxShadow=''">
+        <div style="font-size:36px;flex-shrink:0">🌧</div>
+        <div>
+          <div style="font-size:10.5px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#2874A6;margin-bottom:4px">Dashboard de Chuvas Intensas</div>
+          <div style="font-size:14px;font-weight:700;color:#0B1F52;line-height:1.35">Municípios com Impactos Significativos</div>
+          <div style="font-size:12px;font-weight:500;color:#1A5276;margin-top:2px">Temporada nov/2025 – abr/2026 · Matriz ICR</div>
+          <div style="margin-top:10px;font-size:10.5px;color:#2E86C1;font-weight:700;display:inline-flex;align-items:center;gap:4px">Acessar dashboard &#8599;</div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Lista discreta -->
+    <div style="padding:16px 22px 6px">
+      <div style="font-size:9.5px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#8A9BB5;margin-bottom:10px">Veja também</div>
+    </div>
+    <div style="padding:0 22px 24px;display:flex;flex-direction:column;gap:5px">
+      <a href="https://marceloabelheira-cmd.github.io/PLANCON_IF_2026/" target="_blank" rel="noopener"
+         style="display:flex;align-items:center;gap:11px;padding:10px 13px;border-radius:9px;border:.5px solid #DDE3ED;background:#FAFBFD;text-decoration:none;color:#1A2A5E;font-size:12px;font-weight:600;transition:background .12s"
+         onmouseover="this.style.background='#EFF3FB'" onmouseout="this.style.background='#FAFBFD'">
+        <span style="font-size:17px;flex-shrink:0">🌿</span>
+        <span>PLANCON Incêndios Florestais — Defesa Civil RJ<span style="display:block;font-size:10px;font-weight:400;color:#6B7A99;margin-top:1px">PLANCON IF 2026</span></span>
+        <span style="margin-left:auto;font-size:11px;color:#B0BAC9">&#8599;</span>
+      </a>
+      <a href="https://marceloabelheira-cmd.github.io/SEDEC_acoesdeprevencao.preparacao_GRAC.e.outros/" target="_blank" rel="noopener"
+         style="display:flex;align-items:center;gap:11px;padding:10px 13px;border-radius:9px;border:.5px solid #DDE3ED;background:#FAFBFD;text-decoration:none;color:#1A2A5E;font-size:12px;font-weight:600;transition:background .12s"
+         onmouseover="this.style.background='#EFF3FB'" onmouseout="this.style.background='#FAFBFD'">
+        <span style="font-size:17px;flex-shrink:0">🛡</span>
+        <span>Histórico das Ações Preventivas<span style="display:block;font-size:10px;font-weight:400;color:#6B7A99;margin-top:1px">AÇÕES PREVENTIVAS · SEDEC-RJ</span></span>
+        <span style="margin-left:auto;font-size:11px;color:#B0BAC9">&#8599;</span>
+      </a>
+      <a href="https://marceloabelheira-cmd.github.io/COMITE_ELNINO_PORTAL_versaopublica/" target="_blank" rel="noopener"
+         style="display:flex;align-items:center;gap:11px;padding:10px 13px;border-radius:9px;border:.5px solid #DDE3ED;background:#FAFBFD;text-decoration:none;color:#1A2A5E;font-size:12px;font-weight:600;transition:background .12s"
+         onmouseover="this.style.background='#EFF3FB'" onmouseout="this.style.background='#FAFBFD'">
+        <span style="font-size:17px;flex-shrink:0">🌊</span>
+        <span>Modelo de Portal — Comitê El Niño / Sala de Situação · SEDEC-RJ<span style="display:block;font-size:10px;font-weight:400;color:#6B7A99;margin-top:1px">PORTAL EL NIÑO · versão pública</span></span>
+        <span style="margin-left:auto;font-size:11px;color:#B0BAC9">&#8599;</span>
+      </a>
+      <a href="https://marceloabelheira-cmd.github.io/MATRIZICR_desastrestecnologicosRio_dashboard/" target="_blank" rel="noopener"
+         style="display:flex;align-items:center;gap:11px;padding:10px 13px;border-radius:9px;border:.5px solid #DDE3ED;background:#FAFBFD;text-decoration:none;color:#1A2A5E;font-size:12px;font-weight:600;transition:background .12s"
+         onmouseover="this.style.background='#EFF3FB'" onmouseout="this.style.background='#FAFBFD'">
+        <span style="font-size:17px;flex-shrink:0">⚗</span>
+        <span>Defesa Civil — Desastres Tecnológicos · Cidade do Rio de Janeiro<span style="display:block;font-size:10px;font-weight:400;color:#6B7A99;margin-top:1px">MATRIZ ICR · 2011–2025</span></span>
+        <span style="margin-left:auto;font-size:11px;color:#B0BAC9">&#8599;</span>
+      </a>
+    </div>
 
   </div>
 </div>
 
 <script>
-var PRODUTOS_DATA = [
-  { label:'🚒', desc:'Painel Integrado — Força Especializada da SEDEC-RJ', url:'https://analistadegeoinformacao.github.io/painel-fe-sedec-rj/#amb=sisgeo' },
-  { label:'🌧', desc:'CHUVAS nov/25–abr/26 — Municípios com Impactos Significativos (Matriz ICR)', url:'https://marceloabelheira-cmd.github.io/ESCALAv4/' },
-  { label:'🆘', desc:'CHUVAS nov/25–abr/26 — Situação de Emergência e/ou Ajuda Humanitária', url:'https://marceloabelheira-cmd.github.io/PAINEL_SEeAJUDAHUMANITARIA_chuvas2025.2026/' },
-  { label:'🛡', desc:'AÇÕES PREVENTIVAS — Histórico IF GIGR 2025 &amp; Chuvas', url:'https://marceloabelheira-cmd.github.io/SEDEC_acoesdeprevencao.preparacao_GRAC.e.outros/' },
-  { label:'🔥', desc:'INCÊNDIOS FLORESTAIS 2025 e 2026 — Quantitativo por dia e Eventos Significativos (Matriz ICR)', url:'https://marceloabelheira-cmd.github.io/IF2025/#2026', destaque:true },
-  { label:'🌧', desc:'PAINEL DE CHUVAS — Municípios com Impactos Significativos (Matriz ICR) a partir de outubro/2026', url:'https://marceloabelheira-cmd.github.io/PAINEL_CHUVAS_RJ_visaogeral/' },
-  { label:'🌊', desc:'PORTAL EL NIÑO — versão Comitê', url:'https://marceloabelheira-cmd.github.io/COMITE_ELNINO_PORTAL/' },
-  { label:'📋', desc:'COMITÊ EL NIÑO — Reuniões Plenárias (Relatórios Consolidados)', url:'https://marceloabelheira-cmd.github.io/COMITE_ELNINO_ReunioesPlenarias/' },
-  { label:'🌊', desc:'PORTAL EL NIÑO — versão pública', url:'https://marceloabelheira-cmd.github.io/COMITE_ELNINO_PORTAL_versaopublica/' },
-  { label:'🐾', desc:'PLANCON ANIMAIS (2026)', url:'https://marceloabelheira-cmd.github.io/PLANCON_animais_PlanoPratico/' },
-  { label:'🌿', desc:'PLANCON SEIF — Secas, Estiagens e Incêndios Florestais 2026', url:'https://marceloabelheira-cmd.github.io/PLANCON_IF_2026/' },
-  { label:'☀', desc:'PAINEL EXCESSO DE CALOR — Municípios com Impactos Significativos (Matriz ICR) em estudo', url:'https://marceloabelheira-cmd.github.io/PAINEL_EXCESSODECALOR_MatrizICR/' },
-  { label:'⚗', desc:'DESASTRES TECNOLÓGICOS — Município do Rio de Janeiro (2011–2025), Eventos Significativos (Matriz ICR)', url:'https://marceloabelheira-cmd.github.io/MATRIZICR_desastrestecnologicosRio_dashboard/' }
-];
-
 function openProdutos(){
-  var grid = document.getElementById('produtosGrid');
-  if(!grid.innerHTML){
-    grid.innerHTML = PRODUTOS_DATA.map(function(p){
-      var hi = p.destaque ? 'outline:2.5px solid #E35F1A;outline-offset:-1px;' : '';
-      var badge = p.destaque ? '<span style="position:absolute;top:10px;right:10px;background:#E35F1A;color:#fff;font-size:9px;font-weight:800;padding:2px 7px;border-radius:999px;letter-spacing:.5px">ESTE PAINEL</span>' : '';
-      return '<a href="'+p.url+'" target="_blank" rel="noopener" style="display:block;position:relative;background:#F7F9FC;border-radius:11px;border:.5px solid #D8DCE8;padding:16px 16px 14px;text-decoration:none;color:inherit;transition:box-shadow .15s;'+hi+'"'
-        +' onmouseover="this.style.boxShadow=\'0 4px 18px rgba(11,31,82,.13)\';this.style.background=\'#F0F4FF\'"'
-        +' onmouseout="this.style.boxShadow=\'\';this.style.background=\'#F7F9FC\'">'
-        + badge
-        +'<div style="font-size:22px;margin-bottom:8px">'+p.label+'</div>'
-        +'<div style="font-size:12px;font-weight:600;color:#1A2A5E;line-height:1.45">'+p.desc+'</div>'
-        +'<div style="margin-top:10px;font-size:10.5px;color:#4A6FA5;font-weight:600;display:inline-flex;align-items:center;gap:4px">Acessar &#8599;</div>'
-        +'</a>';
-    }).join('');
-  }
   document.getElementById('produtosOverlay').style.display='block';
   document.body.style.overflow='hidden';
 }
